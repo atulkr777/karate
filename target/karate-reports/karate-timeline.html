@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"pool-1-thread-1","id":1},{"content":"pool-1-thread-2","id":2},{"content":"pool-1-thread-3","id":3},{"content":"pool-1-thread-4","id":4}];
+var items = [{"id":1,"group":1,"content":"conduitApp\/feature\/Articles[1:10]","start":1623322030393,"end":1623322033155,"title":"conduitApp\/feature\/Articles[1:10] 11:47:10.393-11:47:13.155 creating a new article"},{"id":2,"group":2,"content":"conduitApp\/feature\/Articles[2:17]","start":1623322030393,"end":1623322034545,"title":"conduitApp\/feature\/Articles[2:17] 11:47:10.393-11:47:14.545 Deleting an article"},{"id":3,"group":3,"content":"conduitApp\/feature\/HomePage[1:9]","start":1623322030394,"end":1623322034617,"title":"conduitApp\/feature\/HomePage[1:9] 11:47:10.394-11:47:14.617 Get all tags"},{"id":4,"group":4,"content":"conduitApp\/feature\/HomePage[2:19]","start":1623322030393,"end":1623322034753,"title":"conduitApp\/feature\/HomePage[2:19] 11:47:10.393-11:47:14.753 Get 10 articles from the webpage"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
